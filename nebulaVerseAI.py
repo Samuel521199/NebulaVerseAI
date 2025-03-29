@@ -1,16 +1,7 @@
-"""
-NebulaVerseAI - 基于Google Gemini API的智能对话系统
-主要功能：
-1. 支持自定义AI角色设定
-2. 使用ChromaDB存储对话历史
-3. 实现多轮对话上下文管理
-4. 通过Gemini API生成智能回复
-"""
-
 import os
 import json
 import requests
-from vector_db.chroma_db import ChromaManager  # 导入向量数据库管理类
+from vector_db.chroma_db import ChromaManager #添加
 
 # 1. 加载 AI 角色设定
 def load_ai_persona(file_path):
@@ -66,7 +57,7 @@ def main():
     persona = load_ai_persona("ai_persona.json")
 
     # 2. 初始化 ChromaDB
-    db = ChromaManager(api_key) #将API 密钥传入chroma
+    db = ChromaManager()# 传递给 ChromaManager, 不需要api key
 
     # 循环对话
     while True:
