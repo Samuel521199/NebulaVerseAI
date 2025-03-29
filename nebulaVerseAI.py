@@ -81,7 +81,7 @@ def main():
         prompt = build_prompt(persona, conversation_history, user_input)
 
         # 5. 调用 Gemini API (使用 requests)
-        ai_response = generate_content(api_key, "gemini-1.5-flash", prompt)  # 使用 requests
+        ai_response = generate_content(api_key, "gemini-2.0-flash", prompt)  # 使用 requests
 
         print(f"{persona['name']}: {ai_response}")
 
