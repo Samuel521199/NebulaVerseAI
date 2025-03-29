@@ -54,11 +54,17 @@ We welcome contributions from the community, including:
 - Feature requests and suggestions
 
 ### License
-This project is licensed under the **MIT License**. See the LICENSE file for details.
+This project is licensed under the **Apache 2.0 License**. See the LICENSE file for details.
 
 ### Contact
 📧 Email: thoreawsky@gmail.com  
-📂 GitHub: Coming soon!
+📂 GitHub: [Coming soon!]([https://github.com/your-repo](https://github.com/Samuel521199/NebulaVerseAI))
+
+### Status
+✅ **Live**: The project is now live and ready to be used!
+
+### Author
+- **Samuel Jiang**
 
 ---
 
@@ -112,13 +118,14 @@ NebulaVerseAI 致力于打造一个功能强大、易于使用、可广泛扩展
 - 需求与功能建议
 
 ### 许可证
-本项目采用 **MIT 许可证**，允许自由使用、修改和分发。具体条款请参考 LICENSE 文件。
+本项目采用 **Apache 2.0 许可证**，允许自由使用、修改和分发。具体条款请参考 LICENSE 文件。
 
 ### 联系方式
 📧 邮箱：thoreawsky@gmail.com  
-📂 GitHub：即将上线，敬请期待！
+📂 GitHub：[即将上线，敬请期待！]([https://github.com/your-repo](https://github.com/Samuel521199/NebulaVerseAI))
 
----
+### 状态
+✅ **已上线**：项目已正式上线，欢迎使用！
 
-NebulaVerseAI 旨在构建一个创新、强大且灵活的 AI 助手，助力用户在不同领域提升效率与创造力。我们相信，通过不断优化和社区的共同努力，NebulaVerseAI 将成长为一个卓越的 AI 平台，为人们的生活和工作带来更多便利！ 🚀
-
+### 署名
+- **Samuel Jiang**
