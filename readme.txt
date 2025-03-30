@@ -1,3 +1,15 @@
+ai_chatbot/
+├── ai_chatbot.py
+├── ai_persona.json
+├── requirements.txt
+├── db/                  # ChromaDB 存储目录
+│   ├── ...           # 数据库文件
+└── modules/
+    ├── __init__.py
+    ├── gemini_api.py
+    └── chroma_manager.py
+
+
 pip install google-generativeai
 
 pip install chromadb

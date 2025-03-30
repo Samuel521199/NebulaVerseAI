@@ -1,4 +1,4 @@
-google-generativeai
 chromadb
-langchain
-tiktoken  # (如果你的模型需要)
+langchain-chroma
+sentence-transformers
+requests
