@@ -2,6 +2,8 @@ import os
 import json
 from modules.gemini_api import generate_content  # 导入 Gemini API 模块
 from modules.chroma_manager import ChromaManager  # 导入 ChromaDB 模块
+from modules.voice import get_tts  # 导入语音模块
+from modules.utils.config import Config  # 导入配置模块
 
 # 1. 加载 AI 角色设定
 def load_ai_persona(file_path):
@@ -35,6 +37,10 @@ def main():
     # 2. 初始化 ChromaDB
     db = ChromaManager(api_key)  #传递key
 
+    # 3. 初始化配置和语音模块
+    config = Config()
+    tts = get_tts() if config.get_enable_tts() else None
+
     # 循环对话
     while True:
         user_input = input("You: ")
@@ -42,27 +48,33 @@ def main():
             print("感谢使用！再见！")
             break
 
-        # 3. 加载对话历史
+        # 4. 加载对话历史
         conversation_history = db.load_conversation_history(session_id)
 
-         # 4. 构建 Prompt
+        # 5. 构建 Prompt
         # 添加元数据搜索
         search_filter = {"session_id": session_id}  # 仅搜索当前会话的记录
         relevant_context = db.search(user_input, n_results=3, where=search_filter)
         prompt = build_prompt(persona, conversation_history, user_input, relevant_context=relevant_context)
 
-
-        # 5. 调用 Gemini API (使用 requests)
+        # 6. 调用 Gemini API (使用 requests)
         ai_response = generate_content(api_key, "gemini-2.0-flash", prompt)  # 使用 Gemini API 模块
 
         print(f"{persona['name']}: {ai_response}")
 
-        # 6. 存储对话到向量数据库
+        # 7. 语音合成（如果启用）
+        if tts and config.get_enable_tts():
+            audio_path = tts.speak(ai_response)
+            if audio_path:
+                print(f"语音已生成: {audio_path}")
+
+        # 8. 存储对话到向量数据库
         # 添加用户情感和意图信息
         user_sentiment = "positive"  # 替换为情感分析结果
         ai_intent = "provide_information"  # 替换为意图识别结果
 
         metadata = {"user_sentiment": user_sentiment, "ai_intent": ai_intent}
         db.store_conversation(user_input, ai_response, session_id, metadata=metadata)
+
 if __name__ == "__main__":
     main()
